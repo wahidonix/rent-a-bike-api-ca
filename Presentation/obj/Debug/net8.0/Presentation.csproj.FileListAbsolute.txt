@@ -1,0 +1,12 @@
+C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\Presentation\bin\Debug\net8.0\Presentation.deps.json
+C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\Presentation\bin\Debug\net8.0\Presentation.dll
+C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\Presentation\bin\Debug\net8.0\Presentation.pdb
+C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\Presentation\obj\Debug\net8.0\Presentation.csproj.AssemblyReference.cache
+C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\Presentation\obj\Debug\net8.0\Presentation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\Presentation\obj\Debug\net8.0\Presentation.AssemblyInfoInputs.cache
+C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\Presentation\obj\Debug\net8.0\Presentation.AssemblyInfo.cs
+C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\Presentation\obj\Debug\net8.0\Presentation.csproj.CoreCompileInputs.cache
+C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\Presentation\obj\Debug\net8.0\Presentation.dll
+C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\Presentation\obj\Debug\net8.0\refint\Presentation.dll
+C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\Presentation\obj\Debug\net8.0\Presentation.pdb
+C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\Presentation\obj\Debug\net8.0\ref\Presentation.dll

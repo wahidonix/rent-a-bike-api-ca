@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "6tcEqCBK2mF2qePY/ls+KUiEZ1uwGsv+KBnCIpU49qQqwHNWC20WjMR8kk1OxSpjQTYdcdcaGkAcR+WfGawBHQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\vahid\\OneDrive\\Desktop\\rent-a-bike-api-ca\\Presentation\\Presentation.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vahid\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
