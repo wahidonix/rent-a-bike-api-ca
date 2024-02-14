@@ -10,3 +10,4 @@ C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\Presentation\obj\Debug\net8.0
 C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\Presentation\obj\Debug\net8.0\refint\Presentation.dll
 C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\Presentation\obj\Debug\net8.0\Presentation.pdb
 C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\Presentation\obj\Debug\net8.0\ref\Presentation.dll
+C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\Presentation\obj\Debug\net8.0\Presentation.sourcelink.json
