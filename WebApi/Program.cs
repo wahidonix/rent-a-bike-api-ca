@@ -95,5 +95,6 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
+app.UseMiddleware<ErrorHandlerMiddleware>();
 
 app.Run();
