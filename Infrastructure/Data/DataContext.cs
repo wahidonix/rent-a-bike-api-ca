@@ -16,4 +16,8 @@ public class DataContext : IdentityDbContext<ApplicationUser>
 
     }
     public DbSet<Bicycle> Bicycles { get; set; }
+    public DbSet<Bike> Bikes { get; set; }
+    public DbSet<Station> Stations { get; set; }
+    public DbSet<Rental> Rentals { get; set; }
+    public DbSet<ServiceReport> ServiceReports { get; set; }
 }

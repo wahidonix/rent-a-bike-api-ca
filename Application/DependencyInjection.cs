@@ -1,4 +1,6 @@
-﻿using FluentValidation;
+﻿using Application.Interfaces;
+using Application.MapperProfiles;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Application;
@@ -11,6 +13,8 @@ public static class DependencyInjection
         var assembly = typeof(DependencyInjection).Assembly;
 
         services.AddMediatR(configuration => configuration.RegisterServicesFromAssembly(assembly));
+
+        services.AddAutoMapper(typeof(MappingProfile).Assembly);
 
         services.AddValidatorsFromAssembly(assembly);
 

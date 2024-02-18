@@ -115,6 +115,111 @@ namespace Infrastructure.Migrations
                     b.ToTable("Bicycles");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Bike", b =>
+                {
+                    b.Property<int>("BikeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BikeId"));
+
+                    b.Property<string>("BikeType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IdentificationNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LockCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("StationId")
+                        .HasColumnType("int");
+
+                    b.HasKey("BikeId");
+
+                    b.HasIndex("StationId");
+
+                    b.ToTable("Bikes");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Rental", b =>
+                {
+                    b.Property<int>("RentalId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RentalId"));
+
+                    b.Property<int>("BikeId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("EndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("RentalId");
+
+                    b.HasIndex("BikeId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Rentals");
+                });
+
+            modelBuilder.Entity("Domain.Entities.ServiceReport", b =>
+                {
+                    b.Property<int>("ServiceReportId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ServiceReportId"));
+
+                    b.Property<int>("BikeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsResolved")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("ReportDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ServiceReportId");
+
+                    b.HasIndex("BikeId");
+
+                    b.ToTable("ServiceReports");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Station", b =>
+                {
+                    b.Property<int>("StationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StationId"));
+
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("StationId");
+
+                    b.ToTable("Stations");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -248,6 +353,47 @@ namespace Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.Entities.Bike", b =>
+                {
+                    b.HasOne("Domain.Entities.Station", "Station")
+                        .WithMany("Bikes")
+                        .HasForeignKey("StationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Station");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Rental", b =>
+                {
+                    b.HasOne("Domain.Entities.Bike", "Bike")
+                        .WithMany("Rentals")
+                        .HasForeignKey("BikeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Bike");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Domain.Entities.ServiceReport", b =>
+                {
+                    b.HasOne("Domain.Entities.Bike", "Bike")
+                        .WithMany()
+                        .HasForeignKey("BikeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Bike");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -297,6 +443,16 @@ namespace Infrastructure.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Entities.Bike", b =>
+                {
+                    b.Navigation("Rentals");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Station", b =>
+                {
+                    b.Navigation("Bikes");
                 });
 #pragma warning restore 612, 618
         }

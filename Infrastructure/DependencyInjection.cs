@@ -1,5 +1,7 @@
-﻿using Domain.Entities;
+﻿using Application.Interfaces;
+using Domain.Entities;
 using Infrastructure.Data;
+using Infrastructure.Implementations;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -47,6 +49,8 @@ public static class DependencyInjection
             options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
             // Add other policies if needed
         });
+
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         return services;
     }

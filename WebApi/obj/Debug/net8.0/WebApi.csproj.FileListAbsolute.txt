@@ -160,3 +160,6 @@ C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\WebApi\bin\Debug\net8.0\Micro
 C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\WebApi\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\WebApi\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\WebApi\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\WebApi\obj\Debug\net8.0\WebApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\WebApi\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\vahid\OneDrive\Desktop\rent-a-bike-api-ca\WebApi\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
