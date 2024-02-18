@@ -8,7 +8,8 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using Domain.Entities; // Ensure this is pointing to where ApplicationUser is located
+using Domain.Entities;
+using System.Security.Cryptography; // Ensure this is pointing to where ApplicationUser is located
 
 public static class JwtTokenGenerator
 {
@@ -46,5 +47,15 @@ public static class JwtTokenGenerator
         );
 
         return new JwtSecurityTokenHandler().WriteToken(token);
+    }
+
+    public static async Task<string> GenerateRefreshToken()
+    {
+        var randomNumber = new byte[32];
+        using (var rng = RandomNumberGenerator.Create())
+        {
+            rng.GetBytes(randomNumber);
+            return Convert.ToBase64String(randomNumber);
+        }
     }
 }

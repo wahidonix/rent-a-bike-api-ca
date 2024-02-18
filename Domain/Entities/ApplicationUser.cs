@@ -13,23 +13,12 @@ namespace Domain.Entities
 
     public class ApplicationUser : IdentityUser
     {
-        // Credits for bike rentals
         public int Credits { get; set; }
+        public string RefreshToken { get; set; }
+        public DateTime RefreshTokenExpiryTime { get; set; }
 
-        // Optional: Link to rental history if needed
-        // This could be a navigation property in a fully relational design
-        // public virtual ICollection<BikeRental> RentalHistory { get; set; }
-
-        // Optional: Link to reported issues
-        // This could be useful for service personnel to track issues reported by this user
-        // public virtual ICollection<BikeIssueReport> ReportedIssues { get; set; }
-
-        // Constructor to initialize collections
         public ApplicationUser()
         {
-            // Initialize collections if using navigation properties
-            // RentalHistory = new HashSet<BikeRental>();
-            // ReportedIssues = new HashSet<BikeIssueReport>();
         }
     }
 
