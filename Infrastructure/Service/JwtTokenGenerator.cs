@@ -18,20 +18,18 @@ public static class JwtTokenGenerator
     {
         new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-        // Retain the existing NameIdentifier claim for standard ID representation
         new Claim(ClaimTypes.NameIdentifier, user.Id),
-        // Explicitly add a custom "userId" claim
         new Claim("userId", user.Id)
     };
 
-        // Adding user roles as claims
+
         var roles = await userManager.GetRolesAsync(user);
         foreach (var role in roles)
         {
             userClaims.Add(new Claim(ClaimTypes.Role, role));
         }
 
-        // Optionally, add specific claims if needed
+
         var userSpecificClaims = await userManager.GetClaimsAsync(user);
         userClaims.AddRange(userSpecificClaims);
 

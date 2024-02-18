@@ -13,14 +13,14 @@ public static class IdentityDataSeeder
 {
     public static async Task SeedRolesAndAdminAsync(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
     {
-        // List of default roles
+
         string[] roleNames = { "Admin", "User", "ServicePersonnel", "Manager" };
         foreach (var roleName in roleNames)
         {
             await EnsureRoleAsync(roleManager, roleName);
         }
 
-        // Optionally seed role-based claims after roles have been created
+
         await SeedRoleClaimsAsync(roleManager);
 
         await EnsureAdminUserAsync(userManager);
@@ -41,7 +41,7 @@ public static class IdentityDataSeeder
 
     public static async Task SeedRoleClaimsAsync(RoleManager<IdentityRole> roleManager)
     {
-        // Define your roles and associated claims
+
         var roleClaims = new Dictionary<string, List<Claim>>()
         {
             { "Admin", new List<Claim>
@@ -55,7 +55,7 @@ public static class IdentityDataSeeder
                     new Claim("Permission", "ManageStations")
                 }
             },
-            // Define other roles and their claims as needed
+
         };
 
         foreach (var roleClaimPair in roleClaims)
@@ -66,14 +66,13 @@ public static class IdentityDataSeeder
 
             if (role == null)
             {
-                // Optionally log this situation or handle it as needed
-                continue; // Skip if the role doesn't exist
+
+                continue; 
             }
 
             foreach (var claim in claims)
             {
-                // Note: This does not check for duplicate claims.
-                // AddClaimAsync will not add a duplicate claim (same type and value) to the role.
+
                 await roleManager.AddClaimAsync(role, claim);
             }
         }
@@ -90,9 +89,9 @@ public static class IdentityDataSeeder
             {
                 UserName = adminEmail,
                 Email = adminEmail,
-                EmailConfirmed = true  // Assuming the admin's email is confirmed for demonstration purposes
+                EmailConfirmed = true  
             };
-            var adminPassword = "SecurePassword123!"; // Consider a more secure way to handle the initial password
+            var adminPassword = "SecurePassword123!"; 
             var createUserResult = await userManager.CreateAsync(adminUser, adminPassword);
 
             if (createUserResult.Succeeded)

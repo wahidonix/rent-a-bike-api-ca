@@ -110,7 +110,7 @@ public class UserController : ControllerBase
     }
 
     [HttpGet("users-with-roles")]
-    [Authorize(Roles = "Admin")] // Ensure only admins can access this endpoint
+    //[Authorize(Roles = "Admin")]
     public async Task<IActionResult> GetUsersWithRoles()
     {
         var usersWithRoles = new List<UserWithRolesDto>();

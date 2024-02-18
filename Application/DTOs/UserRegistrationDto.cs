@@ -10,6 +10,5 @@ namespace Application.DTOs
     {
         public string Email { get; set; }
         public string Password { get; set; }
-        // Add additional properties as needed, such as 'ConfirmPassword', 'UserName', etc.
     }
 }

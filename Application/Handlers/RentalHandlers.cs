@@ -104,22 +104,20 @@ namespace Application.Handlers
 
         public async Task<bool> Handle(ReturnRentalCommand request, CancellationToken cancellationToken)
         {
-            // Fetch the rental by ID.
+ 
             var rental = await _unitOfWork.Rentals.GetByIdAsync(request.RentalId);
             if (rental == null) return false;
 
-            // Mark the rental as ended by setting the EndTime.
+
             rental.EndTime = DateTime.UtcNow;
 
-            // Additional logic to update the bike's station:
-            // Fetch the bike associated with the rental.
-            var bike = await _unitOfWork.Bikes.GetByIdAsync(rental.BikeId);
-            if (bike == null) return false; // Or handle this scenario as needed.
 
-            // Update the bike's StationId to the new station where it's being returned.
+            var bike = await _unitOfWork.Bikes.GetByIdAsync(rental.BikeId);
+            if (bike == null) return false;
+
             bike.StationId = request.StationId;
 
-            // Persist changes to the database.
+
             await _unitOfWork.CompleteAsync();
 
             return true;

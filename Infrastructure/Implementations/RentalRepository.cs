@@ -41,6 +41,5 @@ namespace Infrastructure.Implementations
             await _context.Rentals.AddAsync(rental);
         }
 
-        // Implement other methods as needed
     }
 }

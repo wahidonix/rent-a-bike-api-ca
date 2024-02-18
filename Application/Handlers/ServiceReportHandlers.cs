@@ -28,7 +28,7 @@ namespace Application.Handlers
             {
                 BikeId = request.BikeId,
                 Description = request.Description,
-                IsResolved = false, // Initially set to false
+                IsResolved = false, 
                 ReportDate = DateTime.UtcNow
             };
 

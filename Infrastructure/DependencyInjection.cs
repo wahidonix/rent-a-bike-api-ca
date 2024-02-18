@@ -19,7 +19,6 @@ public static class DependencyInjection
     {
         var assembly = typeof(DependencyInjection).Assembly;
 
-        // Add DataContext
         services.AddDbContext<DataContext>(options =>
         {
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
@@ -28,7 +27,7 @@ public static class DependencyInjection
                .AddEntityFrameworkStores<DataContext>()
                .AddDefaultTokenProviders();
 
-        // Configure JWT authentication
+
         var jwtSettings = configuration.GetSection("Jwt");
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddJwtBearer(options =>
@@ -45,7 +44,7 @@ public static class DependencyInjection
         services.AddAuthorization(options =>
         {
             options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
-            // Add other policies if needed
+
         });
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();

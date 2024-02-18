@@ -14,7 +14,7 @@ namespace Application.Commands
         public string LockCode { get; set; }
         public int StationId { get; set; }
     }
-    public class RentBikeCommand : IRequest<int> // Returns RentalId
+    public class RentBikeCommand : IRequest<int>
     {
         public int BikeId { get; set; }
         public string UserId { get; set; }

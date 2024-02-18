@@ -9,7 +9,6 @@ namespace Application.DTOs
     public class UserUpdateDto
     {
         public int Credits { get; set; }
-        // Include other properties that might be updatable, like 'PhoneNumber', 'FirstName', 'LastName', etc.
     }
 
 }

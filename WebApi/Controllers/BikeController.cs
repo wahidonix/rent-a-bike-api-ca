@@ -17,7 +17,6 @@ public class BikesController : ControllerBase
         _mediator = mediator;
     }
 
-    // Fetch all bikes
     [HttpGet]
     public async Task<ActionResult<IEnumerable<BikeDto>>> GetAll()
     {
@@ -25,7 +24,6 @@ public class BikesController : ControllerBase
         return Ok(bikes);
     }
 
-    // Fetch a single bike by ID
     [HttpGet("{id}")]
     public async Task<ActionResult<BikeDto>> GetById(int id)
     {

@@ -35,6 +35,5 @@ namespace Infrastructure.Implementations
             await _context.ServiceReports.AddAsync(serviceReport);
         }
 
-        // Implement other methods as needed
     }
 }

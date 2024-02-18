@@ -4,13 +4,13 @@ public class ErrorHandlerMiddleware
 {
     private readonly RequestDelegate _next;
     private readonly ILogger<ErrorHandlerMiddleware> _logger;
-    private readonly IWebHostEnvironment _env; // Add this line
+    private readonly IWebHostEnvironment _env;
 
-    public ErrorHandlerMiddleware(RequestDelegate next, ILogger<ErrorHandlerMiddleware> logger, IWebHostEnvironment env) // Modify constructor
+    public ErrorHandlerMiddleware(RequestDelegate next, ILogger<ErrorHandlerMiddleware> logger, IWebHostEnvironment env)
     {
         _next = next;
         _logger = logger;
-        _env = env; // Set the environment
+        _env = env;
     }
 
     public async Task Invoke(HttpContext context)
@@ -22,7 +22,7 @@ public class ErrorHandlerMiddleware
         catch (Exception ex)
         {
             _logger.LogError(ex, "Unhandled exception occurred.");
-            await HandleExceptionAsync(context, ex, _env); // Pass the environment here
+            await HandleExceptionAsync(context, ex, _env);
         }
     }
 

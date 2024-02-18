@@ -10,7 +10,7 @@ namespace Application.Interfaces
         Task<Bike> GetByIdAsync(int id);
         Task AddAsync(Bike bike);
         Task RemoveAsync(Bike bike);
-        // Add other methods specific to bike operations
+
     }
 
     public interface IStationRepository
@@ -19,7 +19,7 @@ namespace Application.Interfaces
         Task<Station> GetByIdAsync(int id);
         Task AddAsync(Station station);
         Task RemoveAsync(Station station);
-        // Add other methods specific to station operations
+
     }
 
     public interface IRentalRepository
@@ -28,7 +28,7 @@ namespace Application.Interfaces
         Task<Rental> GetByIdAsync(int id);
         Task AddAsync(Rental rental);
         Task<IEnumerable<Rental>> GetByUserIdAsync(string userId);
-        // Add other methods specific to rental operations
+
     }
 
     public interface IServiceReportRepository
@@ -36,6 +36,6 @@ namespace Application.Interfaces
         Task<IEnumerable<ServiceReport>> GetAllAsync();
         Task<ServiceReport> GetByIdAsync(int id);
         Task AddAsync(ServiceReport serviceReport);
-        // Add other methods specific to service report operations
+
     }
 }

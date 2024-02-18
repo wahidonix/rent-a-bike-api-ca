@@ -34,6 +34,5 @@ namespace Infrastructure.Implementations
             _context.Bikes.Remove(bike);
         }
 
-        // Implement other methods defined in the interface
     }
 }

@@ -45,10 +45,10 @@ namespace Application.Handlers
             var station = await _unitOfWork.Stations.GetByIdAsync(request.StationId);
             if (station == null)
             {
-                return false; // Station not found
+                return false; 
             }
 
-            await _unitOfWork.Stations.RemoveAsync(station); // Corrected to await this call
+            await _unitOfWork.Stations.RemoveAsync(station); 
             await _unitOfWork.CompleteAsync();
             return true;
         }
