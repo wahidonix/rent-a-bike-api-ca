@@ -33,12 +33,6 @@ public class UserController : ControllerBase
         {
             await _userManager.AddToRoleAsync(user, "User");
             var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-            /*var confirmationLink = Url.Action("ConfirmEmail", "User",
-                new { userId = user.Id, token = token }, Request.Scheme);*/
-
-            // Send email
-            /*await _emailSender.SendEmailAsync(model.Email, "Confirm your email",
-                $"Please confirm your account by clicking this link: <a href=\"{confirmationLink}\">link</a>");*/
 
             return Ok();
         }
@@ -115,6 +109,27 @@ public class UserController : ControllerBase
         return BadRequest(ModelState);
     }
 
+    [HttpGet("users-with-roles")]
+    [Authorize(Roles = "Admin")] // Ensure only admins can access this endpoint
+    public async Task<IActionResult> GetUsersWithRoles()
+    {
+        var usersWithRoles = new List<UserWithRolesDto>();
+
+        var users = _userManager.Users.ToList();
+        foreach (var user in users)
+        {
+            var roles = await _userManager.GetRolesAsync(user);
+            usersWithRoles.Add(new UserWithRolesDto
+            {
+                UserId = user.Id,
+                Email = user.Email,
+                Credits = user.Credits,
+                Roles = roles
+            });
+        }
+
+        return Ok(usersWithRoles);
+    }
 
 
 }
