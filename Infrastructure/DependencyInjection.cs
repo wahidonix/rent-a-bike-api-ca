@@ -37,10 +37,8 @@ public static class DependencyInjection
         {
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"])),
-            ValidateIssuer = false, // Set to true if you are validating issuer
-            ValidateAudience = false, // Set to true if you are validating audience
-            // ValidIssuer = configuration["Jwt:Issuer"], // Uncomment if validating issuer
-            // ValidAudience = configuration["Jwt:Audience"], // Uncomment if validating audience
+            ValidateIssuer = false,
+            ValidateAudience = false,
         };
         });
 
