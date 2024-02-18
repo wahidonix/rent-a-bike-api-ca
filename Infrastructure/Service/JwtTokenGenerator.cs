@@ -15,11 +15,14 @@ public static class JwtTokenGenerator
     public static async Task<string> GenerateJwtToken(UserManager<ApplicationUser> userManager, IConfiguration configuration, ApplicationUser user)
     {
         var userClaims = new List<Claim>
-        {
-            new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new Claim(ClaimTypes.NameIdentifier, user.Id)
-        };
+    {
+        new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+        // Retain the existing NameIdentifier claim for standard ID representation
+        new Claim(ClaimTypes.NameIdentifier, user.Id),
+        // Explicitly add a custom "userId" claim
+        new Claim("userId", user.Id)
+    };
 
         // Adding user roles as claims
         var roles = await userManager.GetRolesAsync(user);
