@@ -10,9 +10,7 @@ public class MappingProfile : Profile
     {
         CreateMap<Bike, BikeDto>().ReverseMap();
         CreateMap<Station, StationDto>().ReverseMap();
-        CreateMap<Rental, RentalDto>()
-            .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.User.Id)) 
-            .ReverseMap();
+        CreateMap<Rental, RentalDto>().ReverseMap();
         CreateMap<ServiceReport, ServiceReportDto>().ReverseMap();
     }
 }
