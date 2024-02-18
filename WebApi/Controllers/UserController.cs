@@ -67,7 +67,7 @@ public class UserController : ControllerBase
 
 
     [HttpPut("update/{userId}")]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public async Task<IActionResult> UpdateUser(string userId, UserUpdateDto model)
     {
         var user = await _userManager.FindByIdAsync(userId);
